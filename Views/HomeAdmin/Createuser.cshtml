@@ -1,0 +1,48 @@
+﻿@model UserModel
+
+<h1>Registro</h1>
+
+<div class="row">
+    <div class="col-md-4">
+       <form asp-action="CreateUser">
+            <div class="form-group">
+                <label for="exampleInputName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="exampleInputName">                
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">ejemplo@correo.com</div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPhone" class="form-label">Télefono</label>
+                <input type="number" class="form-control" id="exampleInputPhone">                
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <select asp-for="IdBoss" class="form-control" asp-items="ViewBag.Bosses"></select>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <select asp-for="IdOffice" class="form-control" asp-items="ViewBag.Offices"></select>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheckActive">
+                <label class="form-check-label" for="exampleCheckActive">Activo</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheckSpecial">
+                <label class="form-check-label" for="exampleCheckSpecial">Cargo superior</label>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Crear" class="btn btn-primary">Registrar</button>
+            </div>            
+       </form>
+    </div>
+</div>
