@@ -1,4 +1,5 @@
-﻿@model UserModel
+﻿@model User
+
 
 <h1>Registro</h1>
 
@@ -6,39 +7,41 @@
     <div class="col-md-4">
        <form asp-action="CreateUser">
             <div class="form-group">
-                <label for="exampleInputName" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="exampleInputName">                
+                <label asp-for="Name" class="form-label">Nombre</label>
+                <input asp-for="Name" type="text" class="form-control" id="exampleInputName">                
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label asp-for="Email" class="form-label">Correo</label>
+                <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">ejemplo@correo.com</div>
             </div>
             <div class="form-group">
-                <label for="exampleInputPhone" class="form-label">Télefono</label>
-                <input type="number" class="form-control" id="exampleInputPhone">                
+                <label asp-for="Phone" class="form-label">Télefono</label>
+                <input asp-for="Phone" type="number" class="form-control" id="exampleInputPhone">                
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <label for="exampleInputPassword" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
+            </div>            
+
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Superior</label>
                 <select asp-for="IdBoss" class="form-control" asp-items="ViewBag.Bosses"></select>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Oficina/Puesto</label>
                 <select asp-for="IdOffice" class="form-control" asp-items="ViewBag.Offices"></select>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheckActive">
-                <label class="form-check-label" for="exampleCheckActive">Activo</label>
+                <input asp-for="Active" type="checkbox" class="form-check-input" id="exampleCheckActive">
+                <label asp-for="Active" class="form-check-label" for="exampleCheckActive">Activo</label>
             </div>
             <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheckSpecial">
-                <label class="form-check-label" for="exampleCheckSpecial">Cargo superior</label>
+                <input asp-for="Special" type="checkbox" class="form-check-input" id="exampleCheckSpecial">
+                <label asp-for="Special" class="form-check-label" for="exampleCheckSpecial">Cargo superior</label>
             </div>
             <div class="form-group">
                 <button type="submit" value="Crear" class="btn btn-primary">Registrar</button>
