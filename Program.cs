@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Room_Productivity.Models;
+using Room_Productivity.Services;
+using Room_Productivity.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,10 @@ builder.Services.AddDbContext<Room_ProductivityContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Room_ProductivityContext"));    
 });
+
+//inyección de depenencia
+builder.Services.AddScoped<IOfficeService, OfficeService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
